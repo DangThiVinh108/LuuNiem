@@ -23,7 +23,7 @@
         </Button>
         <Label Content="Tên hàng lưu niệm:" Margin="23,67,0,0" VerticalAlignment="Top" Height="28" Width="146" HorizontalAlignment="Left" FontWeight="Bold" FontSize="15"/>
         <Label Content="Mô tả:" Margin="23,255,0,0" VerticalAlignment="Top" Width="146" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold" Height="30"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="407,46,21,31" SelectionChanged="DataGrid_SelectionChanged"/>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="403,63,25,14" SelectionChanged="DataGrid_SelectionChanged"/>
         <Label Content="Ảnh:" Margin="23,153,0,0" VerticalAlignment="Top" Width="152" HorizontalAlignment="Left" FontWeight="Bold" FontSize="15" Height="30"/>
         <Label Content="Giá:" Margin="23,111,0,0" VerticalAlignment="Top" Width="146" HorizontalAlignment="Left" FontWeight="Bold" FontSize="15" Height="26"/>
         <TextBox x:Name="txtImage" HorizontalAlignment="Left" Margin="175,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" Height="82"/>
@@ -35,6 +35,8 @@
                 <ImageBrush ImageSource="/Images/icon_save.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
+        <TextBox HorizontalAlignment="Left" Margin="403,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="425" Height="30"/>
+        <Button x:Name="btnSearch" Content="Tìm" HorizontalAlignment="Left" Margin="847,10,0,0" VerticalAlignment="Top" Height="30" Width="61" Click="Button_Click"/>
 
     </Grid>
 </Window>
