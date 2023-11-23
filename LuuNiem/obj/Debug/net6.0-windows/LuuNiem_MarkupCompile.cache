@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 V:\TuHoc\Vinh\LuuNiem\LuuNiem\App.xaml
-3-674808735
+5-359595375
 
-72030798093
+10-2119314860
 204604394703
-Login.xaml;MainWindow.xaml;Souvenir.xaml;
+Customers.xaml;Login.xaml;MainWindow.xaml;Souvenir.xaml;Users.xaml;
 
 False
 

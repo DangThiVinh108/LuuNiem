@@ -5,31 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LuuNiem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="523" Width="912">
+        Title="MainWindow" Height="523" Width="912" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <DockPanel>
         <Menu DockPanel.Dock="Top" FontWeight="Bold" >
-            <MenuItem Header="Bán hàng" >
+            <MenuItem Header="Bán hàng"  >
                 <MenuItem.Icon>
                     <Image Source="Images/BanHang.png" />
                 </MenuItem.Icon>
                 <MenuItem Header="Hóa đơn bán">
-                    
+                    <MenuItem.Icon>
+                        <Image Source="/Images/HoaDonBan.png" />
+                    </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Khách hàng">
+                <MenuItem x:Name="mnuCustomer" Header="Khách hàng" Click="mnuCustomer_Click">
                     <MenuItem.Icon>
                         <Image Source="/Images/KhachHang.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                
+                <MenuItem x:Name="mnuSouvenir" Header="Danh mục"  Click="mnuSouvenir_Click"></MenuItem>
+
             </MenuItem>
-            
-           
+
+
             <MenuItem Header="Nhập hàng">
                 <MenuItem.Icon>
                     <Image Source="/Images/NhapHang.png" />
                 </MenuItem.Icon>
                 <MenuItem Header="Hóa đơn nhập">
-                    
+                    <MenuItem.Icon>
+                        <Image Source="/Images/HoaDonNhap.jpg" />
+                    </MenuItem.Icon>    
                 </MenuItem>
                 <MenuItem Header="Nhà cung cấp">
                     <MenuItem.Icon>
@@ -37,29 +42,52 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem  Header="Hàng hóa">
-                <MenuItem.Icon>
-                    <Image Source="/Images/ThongKe.png" />
-                </MenuItem.Icon>
-                <MenuItem Header="Nhóm hàng"></MenuItem>
-                <MenuItem x:Name="mnuSouvenir" Header="Danh mục"  Click="mnuSouvenir_Click"></MenuItem>
-               
-            </MenuItem>
+
             <MenuItem Header="Thống kê">
                 <MenuItem.Icon>
                     <Image Source="/Images/ThongKe.png" />
                 </MenuItem.Icon>
                 <MenuItem Header="Hàng đã nhập"></MenuItem>
-                <MenuItem Header="Hàng đã bán"></MenuItem>
-                <MenuItem Header="Hàng tồn kho"></MenuItem>
+                <MenuItem Header="Hàng đã bán">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/HangDaBan.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Hàng tồn kho">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/HangTonKho.jpg" />
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Người dùng">
                 <MenuItem.Icon>
                     <Image Source="/Images/NguoiDung.png" />
                 </MenuItem.Icon>
-                <MenuItem Header="Đổi mật khẩu"></MenuItem>
-                <MenuItem Header="Đổi tên đăng nhập"></MenuItem>
-                
+                <MenuItem Header="Đổi mật khẩu" x:Name="mnuUser" Click="mnuUser_Click" >
+                    <MenuItem.Icon>
+                        <Image Source="/Images/DoiMK.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Đổi tên đăng nhập">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/DoiTenDN.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Cập nhật người dùng">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/CNNguoiDung.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Phân quyền">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/PhanQuyen.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="mnuLogout" Header="Đăng xuất" Click="mnuLogout_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/DangXuat.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
         </Menu>
     </DockPanel>

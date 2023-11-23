@@ -10,10 +10,23 @@
 
   <ItemGroup>
     <None Remove="Images\BanHang.png" />
+    <None Remove="Images\CNNguoiDung.jpg" />
+    <None Remove="Images\CNNguoiDung.png" />
+    <None Remove="Images\DangXuat.png" />
+    <None Remove="Images\DoiMK.png" />
+    <None Remove="Images\DoiTenDN.png" />
+    <None Remove="Images\HangDaBan.png" />
+    <None Remove="Images\HangTonKho.jpg" />
+    <None Remove="Images\HoaDonBan.png" />
+    <None Remove="Images\HoaDonNhap.jpg" />
+    <None Remove="Images\icon_logout.png" />
     <None Remove="Images\KhachHang.png" />
+    <None Remove="Images\logout.png" />
     <None Remove="Images\NguoiDung.png" />
     <None Remove="Images\NhaCungCap.png" />
     <None Remove="Images\NhapHang.png" />
+    <None Remove="Images\PhanQ.png" />
+    <None Remove="Images\PhanQuyen.png" />
     <None Remove="Images\ThongKe.png" />
   </ItemGroup>
 
@@ -24,10 +37,20 @@
 
   <ItemGroup>
     <Resource Include="Images\BanHang.png" />
+    <Resource Include="Images\CNNguoiDung.png" />
+    <Resource Include="Images\DangXuat.png" />
+    <Resource Include="Images\DoiMK.png" />
+    <Resource Include="Images\DoiTenDN.png" />
+    <Resource Include="Images\HangDaBan.png" />
+    <Resource Include="Images\HangTonKho.jpg" />
+    <Resource Include="Images\HoaDonBan.png" />
+    <Resource Include="Images\HoaDonNhap.jpg" />
     <Resource Include="Images\KhachHang.png" />
+    <Resource Include="Images\logout.png" />
     <Resource Include="Images\NguoiDung.png" />
     <Resource Include="Images\NhaCungCap.png" />
     <Resource Include="Images\NhapHang.png" />
+    <Resource Include="Images\PhanQuyen.png" />
     <Resource Include="Images\ThongKe.png" />
   </ItemGroup>
 

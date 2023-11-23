@@ -32,3 +32,8 @@ V:\TuHoc\Vinh\LuuNiem\LuuNiem\bin\Debug\net6.0-windows\runtimes\win\lib\netcorea
 V:\TuHoc\Vinh\LuuNiem\LuuNiem\obj\Debug\net6.0-windows\LuuNiem.csproj.CopyComplete
 V:\TuHoc\Vinh\LuuNiem\LuuNiem\obj\Debug\net6.0-windows\Souvenir.g.cs
 V:\TuHoc\Vinh\LuuNiem\LuuNiem\obj\Debug\net6.0-windows\Souvenir.baml
+V:\TuHoc\Vinh\LuuNiem\LuuNiem\obj\Debug\net6.0-windows\Users.g.cs
+V:\TuHoc\Vinh\LuuNiem\LuuNiem\obj\Debug\net6.0-windows\Users.baml
+V:\TuHoc\Vinh\LuuNiem\LuuNiem\obj\Debug\net6.0-windows\App.baml
+V:\TuHoc\Vinh\LuuNiem\LuuNiem\obj\Debug\net6.0-windows\Customers.g.cs
+V:\TuHoc\Vinh\LuuNiem\LuuNiem\obj\Debug\net6.0-windows\Customers.baml

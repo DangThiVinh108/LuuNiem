@@ -15,20 +15,47 @@ using System.Windows.Shapes;
 
 namespace LuuNiem
 {
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window    
     {
+
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void mnuSouvenir_Click(object sender, RoutedEventArgs e)
         {
             Souvenir frmSouvenir = new Souvenir();
             frmSouvenir.ShowDialog();
+        }
+
+        private void mnuLogout_Click(object sender, RoutedEventArgs e)
+        {
+            PerformLogout();
+        }
+        private void PerformLogout()
+        {
+
+            this.Close();
+            Login loginForm = new Login();
+            loginForm.Show();
+        }
+
+        private void mnuCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            Customers frmCustomer= new Customers();
+            frmCustomer.ShowDialog();
+        }
+
+        private void mnuUser_Click(object sender, RoutedEventArgs e)
+        {
+            Users frmUser = new Users();
+            frmUser.ShowDialog();
         }
     }
 }

@@ -5,38 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LuuNiem"
         mc:Ignorable="d"
-        Title="Souvenir" Height="447" Width="933">
-    <Grid>
-        <Grid.Background>
-            <ImageBrush/>
-        </Grid.Background>
-        <TextBox x:Name="txtSouvenirName" HorizontalAlignment="Left" Margin="174,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" Height="28"/>
-        <Button x:Name="btnClear" Content="" HorizontalAlignment="Left" Margin="63,371,0,0" VerticalAlignment="Top" Width="41" Height="29" FontSize="16" Click="btnClear_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/Clear.png" Stretch="Uniform" TileMode="None"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="btnDelete1" Content="" HorizontalAlignment="Left" Margin="179,371,0,0" VerticalAlignment="Top" Height="29" Width="41">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/icon_delete.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <Label Content="Tên hàng lưu niệm:" Margin="23,67,0,0" VerticalAlignment="Top" Height="28" Width="146" HorizontalAlignment="Left" FontWeight="Bold" FontSize="15"/>
-        <Label Content="Mô tả:" Margin="23,255,0,0" VerticalAlignment="Top" Width="146" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold" Height="30"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="403,63,25,14" SelectionChanged="DataGrid_SelectionChanged"/>
-        <Label Content="Ảnh:" Margin="23,153,0,0" VerticalAlignment="Top" Width="152" HorizontalAlignment="Left" FontWeight="Bold" FontSize="15" Height="30"/>
-        <Label Content="Giá:" Margin="23,111,0,0" VerticalAlignment="Top" Width="146" HorizontalAlignment="Left" FontWeight="Bold" FontSize="15" Height="26"/>
-        <TextBox x:Name="txtImage" HorizontalAlignment="Left" Margin="175,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" Height="82"/>
-        <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Margin="174,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" Height="26"/>
-        <TextBlock x:Name="txbSouvenirID" HorizontalAlignment="Left" Margin="175,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" Height="27" RenderTransformOrigin="0.518,1.129"/>
-        <Label Content="Mã hàng lưu niệm:" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top" Width="147" FontSize="15" FontWeight="Bold"/>
-        <Button x:Name="btnSave" Content="" HorizontalAlignment="Left" Margin="299,371,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Width="39" Height="29">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/icon_save.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <TextBox HorizontalAlignment="Left" Margin="403,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="425" Height="30"/>
-        <Button x:Name="btnSearch" Content="Tìm" HorizontalAlignment="Left" Margin="847,10,0,0" VerticalAlignment="Top" Height="30" Width="61" Click="Button_Click"/>
+        Title="Souvenir" Height="600" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Margin='10'>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="20"/>
+            
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
 
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Mã hàng:"  Grid.Row="1" Grid.Column="0"/>
+        <Label Content="Tên hàng:" Grid.Row="2" Grid.Column="0"/>
+        <Label Content="Mô tả:" Grid.Row="4" Grid.Column="0"/>
+        <Label Content="Giá bán:" Grid.Row="5" Grid.Column="0"/>
+        <Label  Content="Nhóm hàng:" Grid.Row="6" Grid.Column="0"/>
+
+        <TextBox IsEnabled="False" x:Name="txbSouvenirID" Grid.Row="1" Grid.Column="1" Width="250" 
+                   Text="{Binding SelectedItem.SouvenirID, ElementName=dtgrSouvenir}"/>
+        <TextBox x:Name="txtSouvenirName" Grid.Row="2" Grid.Column="1" Width="250"
+                 Text="{Binding SelectedItem.SouvenirName, ElementName=dtgrSouvenir, Mode=OneWay}" />
+        <Image x:Name="imgSvn" Grid.Row="3" Grid.Column="1" Height="200"
+               Source="/Images/BanHang.png" />
+        <TextBox x:Name="txtDescription" Grid.Row="4" Grid.Column="1" 
+                 AcceptsReturn="True" Height="150" Width="250"
+                 Text="{Binding SelectedItem.Description, ElementName=dtgrSouvenir, Mode=OneWay}" />
+        <TextBox x:Name="txtPrice" Grid.Row="5" Grid.Column="1" Width="250"
+                 PreviewTextInput="txtPrice_PreviewTextInput"
+                 Text="{Binding SelectedItem.Price, ElementName=dtgrSouvenir, Mode=OneWay}" />
+        <TextBox x:Name="txtSGroup"
+                 Grid.Row="6" Grid.Column="1" Width="250"
+                 Text="{Binding SelectedItem.SGroup, ElementName=dtgrSouvenir, Mode=OneWay}"  />
+        <DataGrid x:Name="dtgrSouvenir" Grid.Row="2" Grid.Column="3" IsTextSearchEnabled="True"
+                  Width="auto" Height="auto" Grid.RowSpan="6" AutoGenerateColumns="False" IsReadOnly="True"  >
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="Mã Hàng" Binding="{Binding SouvenirID}" />
+                <DataGridTextColumn Header="Tên Hàng" Binding="{Binding SouvenirName}" />
+                <DataGridTextColumn Header="Giá bán" Binding="{Binding Price}" />
+                <DataGridTextColumn Header="Mô tả" Binding="{Binding Description}" />
+                <DataGridTextColumn Header="Nhóm" Binding="{Binding SGroup}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <WrapPanel HorizontalAlignment="Center" Grid.Row="8" Grid.ColumnSpan="2">
+            <Button x:Name="btnNew" Width="100" Margin="20" Click="btnNew_Click">Thêm</Button>
+            <Button x:Name="btnUpdate" Width="100" Margin="20" Click="btnUpdate_Click">Sửa</Button>
+            <Button x:Name="btnDelete" Width="100" Margin="20" Click="btnDelete_Click">Xóa</Button>
+        </WrapPanel>
     </Grid>
+
 </Window>
