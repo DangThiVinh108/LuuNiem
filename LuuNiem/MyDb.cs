@@ -23,7 +23,7 @@ namespace LuuNiem
             try
             {
                 mySqlConnection = new SqlConnection($"Data Source ={severName};Initial Catalog=LuuNiem;Integrated Security=True");
-                //conn = new SqlConnection($"Data Source={severName};Initial Catalog=LuuNiem;Integrated Security=False;User ID=UserName;Password=YourPassword;");
+                //mySqlConnection = new SqlConnection($"Data Source=DESKTOP - GP47KE0;Initial Catalog=LuuNiem;Integrated Security=False;User ID=sa;Password=12345;");
                 mySqlConnection.Open();
 
             }

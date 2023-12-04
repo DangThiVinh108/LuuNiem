@@ -52,10 +52,18 @@ namespace LuuNiem
             frmCustomer.ShowDialog();
         }
 
-        private void mnuUser_Click(object sender, RoutedEventArgs e)
+
+        private void mnuSupplier_Click(object sender, RoutedEventArgs e)
         {
-            Users frmUser = new Users();
-            frmUser.ShowDialog();
+            Suppliers frmSupplier = new Suppliers();
+            frmSupplier.ShowDialog();
         }
+
+        private void mnuChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            ChangePW frmChangePW = new ChangePW();
+            frmChangePW.ShowDialog();
+        }
+
     }
 }

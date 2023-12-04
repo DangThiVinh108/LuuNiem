@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace LuuNiem
 {
-    /// <summary>
-    /// Interaction logic for Customers.xaml
-    /// </summary>
     public partial class Customers : Window
     {
         private MyDb db = new MyDb();
@@ -53,7 +50,7 @@ namespace LuuNiem
             string Email = txtEmail.Text;
             string Description = txtDescription.Text;
 
-            string sql = $"Update tblCustomers set FullName = '{FullName}', Address = {Address}, Phone = '{Phone}', Email = '{Email}',Description = '{Description}' where CustomerID = '{CustomerID}'";
+            string sql = $"Update tblCustomers set FullName = N'{FullName}', Address = N'{Address}', Phone = '{Phone}', Email = N'{Email}',Description = N'{Description}' where CustomerID = '{CustomerID}'";
             db.RunNonQuery(sql);
             DataRowView selectedRow = dtgrCustomer.SelectedItem as DataRowView;
             if (selectedRow != null)
@@ -88,12 +85,12 @@ namespace LuuNiem
                 string FullName = txtFullName.Text;
                 string Address = txtAddress.Text;
                 string Phone = txtPhone.Text;
-                string Email = txtPhone.Text;
+                string Email = txtEmail.Text;
                 string Description = txtDescription.Text;
                 //
                 if (!string.IsNullOrEmpty(txtFullName.Text))
                 {
-                    string sql = $"INSERT INTO tblCustomers (FullName, Address,Phone, Email, Description) VALUES ('{FullName}', {Address},'{Phone}','{Email}', '{Description}')";
+                    string sql = $"INSERT INTO tblCustomers (FullName, Address,Phone, Email, Description) VALUES (N'{FullName}', N'{Address}','{Phone}',N'{Email}', N'{Description}')";
                     db.RunNonQuery(sql);
                     DataTable dataTable = db.GetDataTable("Select * from tblCustomers");
 

@@ -24,6 +24,9 @@ namespace LuuNiem
         public Login()
         {
             InitializeComponent();
+            txtUserName.Loaded += (s, e) => txtUserName.Focus();
+            txtUserName.PreviewKeyDown += txtUserName_PreviewKeyDown;
+            pbPassWord.PreviewKeyDown += pbPassWord_PreviewKeyDown;
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -69,6 +72,24 @@ namespace LuuNiem
         private void txtPasswordShow_TextChanged(object sender, TextChangedEventArgs e)
         {
             pbPassWord.Password = txtPasswordShow.Text;
+        }
+
+        private void txtUserName_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                e.Handled = true;
+                pbPassWord.Focus();
+            }
+        }
+
+        private void pbPassWord_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                e.Handled = true;
+                btnLogin_Click(sender, e);
+            }
         }
     }
 }

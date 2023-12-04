@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics.Tracing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -50,34 +51,63 @@ namespace LuuNiem
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            int userID = Convert.ToInt32(txbUserID.Text);
-            string FullName = txtFullName.Text;
-            string UserName = txtUserName.Text;
-            string Password = txtPassword.Text;
-            string Phone = txtPhone.Text;
-            string Email = txtEmail.Text;
-            DatePicker Birthday = dpBirthday;
-            string Address = txtAddress.Text;
-            string Permissions = txtPermissions.Text;
-            int Status = Convert.ToInt32(txtStatus.Text);
-            string Description = txtDescription.Text;
-            string sql = $"Update tblUsers set FullName = '{FullName}', UserName = {UserName},Password= '{Password}',Phone = '{Phone}',Email = '{Email}',Birthday = '{Birthday}',Address = '{Address}',Status = '{Status}', Permissions = '{Permissions}', Description = '{Description}' where UserID = '{userID}'";
-            db.RunNonQuery(sql);
-            DataRowView selectedRow = dtgrUser.SelectedItem as DataRowView;
-            if (selectedRow != null)
+            try
             {
-                selectedRow["FullName"] = FullName;
-                selectedRow["UserName"] = UserName;
-                selectedRow["Password"] = Password;
-                selectedRow["Phone"] = Phone;
-                selectedRow["Email"] = Email;
-                selectedRow["Birthday"] = Birthday;
-                selectedRow["Address"] = Address;
-                selectedRow["Permissions"] = Permissions;
-                selectedRow["Status"] = Status;
-                selectedRow["Description"] = Description;
+                int userID = Convert.ToInt32(txbUserID.Text);
+                string FullName = txtFullName.Text;
+                string UserName = txtUserName.Text;
+                string Password = txtPassword.Text; // Note: Consider using a secure password hashing algorithm
+                string Phone = txtPhone.Text;
+                string Email = txtEmail.Text;
+                DateTime Birthday = dpBirthday.SelectedDate ?? DateTime.MinValue; // Use selected date or a default value
+                string Address = txtAddress.Text;
+                string Permissions = txtPermissions.Text;
+                int Status = (cbStatus.IsChecked == true) ? 1 : 0;
+                string Description = txtDescription.Text;
+
+                // Using parameterized query to prevent SQL injection
+                string sql = "UPDATE tblUsers SET FullName = @FullName, UserName = @UserName, Password = @Password, Phone = @Phone, " +
+                             "Email = @Email, Birthday = @Birthday, Address = @Address, Status = @Status, " +
+                             "Permissions = @Permissions, Description = @Description WHERE UserID = @UserID";
+
+                using (SqlConnection connection = new SqlConnection("your_connection_string_here"))
+                {
+                    connection.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@FullName", FullName);
+                        cmd.Parameters.AddWithValue("@UserName", UserName);
+                        cmd.Parameters.AddWithValue("@Password", Password);
+                        cmd.Parameters.AddWithValue("@Phone", Phone);
+                        cmd.Parameters.AddWithValue("@Email", Email);
+                        cmd.Parameters.AddWithValue("@Birthday", Birthday);
+                        cmd.Parameters.AddWithValue("@Address", Address);
+                        cmd.Parameters.AddWithValue("@Status", Status);
+                        cmd.Parameters.AddWithValue("@Permissions", Permissions);
+                        cmd.Parameters.AddWithValue("@Description", Description);
+                        cmd.Parameters.AddWithValue("@UserID", userID);
+
+                        // Execute the query
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                // Update the DataRowView in the DataGrid
+                DataRowView selectedRow = dtgrUser.SelectedItem as DataRowView;
+                if (selectedRow != null)
+                {
+                    selectedRow["FullName"] = FullName;
+                    selectedRow["UserName"] = UserName;
+                    // Update other fields as needed...
+                }
+
+                MessageBox.Show("Đã sửa thành công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            MessageBox.Show("Đã sửa thành công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
@@ -94,7 +124,7 @@ namespace LuuNiem
                 dpBirthday.SelectedDate = null;
                 txtAddress.Clear();
                 txtPermissions.Clear();
-                txtStatus.Clear();
+                cbStatus.IsChecked = false;
                 txtDescription.Clear();
                 
 
@@ -111,9 +141,7 @@ namespace LuuNiem
                 string Email = txtFullName.Text;
                 string Birthday = txtFullName.Text;
                 string Address = txtFullName.Text;
-
-                if (string.IsNullOrEmpty(txtStatus.Text)) txtStatus.Text = "0";
-                int Status = Convert.ToInt32(txtStatus.Text);
+                int Status = (cbStatus.IsChecked == true) ? 1 : 0;
                 string Description = txtDescription.Text;
                 //
                 if (!string.IsNullOrEmpty(txtFullName.Text))

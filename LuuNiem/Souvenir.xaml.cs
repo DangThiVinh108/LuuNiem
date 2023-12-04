@@ -63,7 +63,7 @@ namespace LuuNiem
             int Price = Convert.ToInt32(txtPrice.Text);
             string Description = txtDescription.Text;
             string sGroup = txtSGroup.Text;
-            string sql = $"Update tblSouvenir set SouvenirName = '{souvenirName}', Price = {Price}, Description = '{Description}', SGroup = '{sGroup}' where SouvenirID = '{souvenirID}'";
+            string sql = $"Update tblSouvenir set SouvenirName = N'{souvenirName}', Price = {Price}, Description = N'{Description}', SGroup = N'{sGroup}' where SouvenirID = '{souvenirID}'";
             db.RunNonQuery(sql);
             DataRowView selectedRow = dtgrSouvenir.SelectedItem as DataRowView;
             if (selectedRow != null)
@@ -102,7 +102,7 @@ namespace LuuNiem
                 //
                 if (!string.IsNullOrEmpty(txtSouvenirName.Text))
                 {
-                    string sql = $"INSERT INTO tblSouvenir (SouvenirName, Price, Description, SGroup) VALUES ('{souvenirName}', {Price}, '{Description}', '{sGroup}')";
+                    string sql = $"INSERT INTO tblSouvenir (SouvenirName, Price, Description, SGroup) VALUES (N'{souvenirName}', {Price}, N'{Description}', N'{sGroup}')";
                     db.RunNonQuery(sql);
                     DataTable dataTable = db.GetDataTable("Select * from tblSouvenir");
                  

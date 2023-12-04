@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ChangePW.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Customers.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -16,11 +19,17 @@
     <Compile Update="Souvenir.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Suppliers.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Users.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ChangePW.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Customers.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -31,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Souvenir.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Suppliers.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Users.xaml">

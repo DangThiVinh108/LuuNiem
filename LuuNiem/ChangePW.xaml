@@ -1,0 +1,39 @@
+﻿<Window x:Class="LuuNiem.ChangePW"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LuuNiem"
+        mc:Ignorable="d" Background="AliceBlue"
+        Title="ChangePW" Height="300" Width="450">
+    <Grid Margin="20" HorizontalAlignment="Center">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="ĐỔI MẬT KHẨU ĐĂNG NHẬP" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,20"/>
+        <Label Content="Mật khẩu hiện tại:" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+        <Label Content="Mật khẩu mới:" Grid.Row="3" Grid.Column="0"/>
+        <Label Content="Xác nhận mật khẩu mới:" Grid.Row="4" Grid.Column="0"/>
+        <Label Content="Tên người dùng:" Grid.Row="1" Grid.Column="0" Margin="0,0,10,0"/>
+        <TextBox x:Name="usernameTextBox" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" Width="200"/>
+        <PasswordBox x:Name="currentPasswordBox" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" Width="200" />
+        <PasswordBox x:Name="newPasswordBox" Grid.Row="3" Grid.Column="1" Margin="0,0,0,10" Width="200"/>
+        <PasswordBox x:Name="confirmPasswordBox" Grid.Row="4" Grid.Column="1" Margin="0,0,0,10" Width="200"/>
+
+        <Button Content="Đổi mật khẩu" Click="ChangePasswordButton_Click" Background="YellowGreen" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,20,0,0" Width="120" Height="35" HorizontalAlignment="Center"/>
+
+        <TextBlock x:Name="resultTextBlock" Text="" Foreground="Green" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+    </Grid>
+</Window>

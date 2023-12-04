@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LuuNiem"
         mc:Ignorable="d"
-        Title="Souvenir" Height="600" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Souvenir" Height="580" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Margin='10'>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -15,7 +15,6 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -50,7 +49,7 @@
                  Grid.Row="6" Grid.Column="1" Width="250"
                  Text="{Binding SelectedItem.SGroup, ElementName=dtgrSouvenir, Mode=OneWay}"  />
         <DataGrid x:Name="dtgrSouvenir" Grid.Row="2" Grid.Column="3" IsTextSearchEnabled="True"
-                  Width="auto" Height="auto" Grid.RowSpan="6" AutoGenerateColumns="False" IsReadOnly="True"  >
+                  Width="auto" Height="auto" Grid.RowSpan="5" AutoGenerateColumns="False" IsReadOnly="True"  >
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Mã Hàng" Binding="{Binding SouvenirID}" />
                 <DataGridTextColumn Header="Tên Hàng" Binding="{Binding SouvenirName}" />
@@ -59,7 +58,7 @@
                 <DataGridTextColumn Header="Nhóm" Binding="{Binding SGroup}" />
             </DataGrid.Columns>
         </DataGrid>
-        <WrapPanel HorizontalAlignment="Center" Grid.Row="8" Grid.ColumnSpan="2">
+        <WrapPanel HorizontalAlignment="Center" Grid.Row="7" Grid.ColumnSpan="2">
             <Button x:Name="btnNew" Width="100" Margin="20" Click="btnNew_Click">Thêm</Button>
             <Button x:Name="btnUpdate" Width="100" Margin="20" Click="btnUpdate_Click">Sửa</Button>
             <Button x:Name="btnDelete" Width="100" Margin="20" Click="btnDelete_Click">Xóa</Button>

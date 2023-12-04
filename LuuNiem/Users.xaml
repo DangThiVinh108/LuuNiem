@@ -7,7 +7,7 @@
         mc:Ignorable="d"  
         
         
-        Title="Users" Height="600" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Users" Height="570" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     
     <Grid Margin="10"  >
         <Grid.ColumnDefinitions>
@@ -30,7 +30,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -61,15 +61,13 @@
                  Text="{Binding SelectedItem.Birthday, ElementName=dtgrUser, Mode=OneWay}"  />
         <TextBox x:Name="txtAddress" Grid.Row="8" Grid.Column="1" Width="250"
                  Text="{Binding SelectedItem.Address, ElementName=dtgrUser, Mode=OneWay}" />
-        <TextBox x:Name="txtStatus" Grid.Row="9" Grid.Column="1" Width="250"
-                 
-                 Text="{Binding SelectedItem.Status, ElementName=dtgrUser, Mode=OneWay}" />
+        <CheckBox x:Name="cbStatus" Grid.Row="9" Grid.Column="1"  Width="250"             
+                 IsChecked="{Binding SelectedItem.Status, ElementName=dtgrUser, Mode=OneWay}" />
         <TextBox x:Name="txtPermissions" Grid.Row="10" Grid.Column="1" Width="250"
                  Text="{Binding SelectedItem.Permissions, ElementName=dtgrUser, Mode=OneWay}"  />
         <TextBox x:Name="txtDescription" Grid.Row="11" Grid.Column="1" 
                  AcceptsReturn="True" Height="150" Width="250"
                  Text="{Binding SelectedItem.Description, ElementName=dtgrUser, Mode=OneWay}" />
-
         <DataGrid x:Name="dtgrUser" Grid.Row="2" Grid.Column="3" IsTextSearchEnabled="True" 
                   Width="auto" Height="auto" Grid.RowSpan="10" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns >
@@ -81,15 +79,15 @@
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
                 <DataGridTextColumn Header="Ngày sinh" Binding="{Binding Birthday}" />
                 <DataGridTextColumn Header="Địa chỉ" Binding="{Binding Address}" />
-                <DataGridTextColumn Header="Trạng thái" Binding="{Binding Status}" />
-                <DataGridTextColumn Header="Phân quyền" Binding="{Binding Permissions}" />
+                <DataGridCheckBoxColumn Header="Trạng thái" Binding="{Binding Status}" />
+                <DataGridCheckBoxColumn Header="Phân quyền" Binding="{Binding Permissions}" />
                 <DataGridTextColumn Header="Mô tả" Binding="{Binding Description}" />
 
             </DataGrid.Columns>
         </DataGrid>
         
         <WrapPanel HorizontalAlignment="Center" Grid.Row="12" Grid.ColumnSpan="2">
-            <Button  x:Name="btnNew" Height="25" Width="100" Margin="20" Click="btnNew_Click">Thêm</Button>
+            <Button  x:Name="btnNew"  Width="100" Margin="20" Click="btnNew_Click">Thêm</Button>
            
             <Button x:Name="btnUpdate" Width="100" Margin="20" Click="btnUpdate_Click">Sửa</Button>
             

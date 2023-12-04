@@ -1,0 +1,70 @@
+﻿<Window x:Class="LuuNiem.Suppliers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LuuNiem"
+        mc:Ignorable="d"
+        Title="Suppliers" Height="450" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <Label Content="Mã NCC:" Grid.Row="1" Grid.Column="0"/>
+        <Label Content="Tên NCC:" Grid.Row="2" Grid.Column="0"/>
+        <Label Content="Tên liên lạc:" Grid.Row="3" Grid.Column="0"/>
+        <Label Content="Địa chỉ:" Grid.Row="4" Grid.Column="0"/>
+        <Label Content="Số điện thoại:" Grid.Row="5" Grid.Column="0"/>
+        <Label Content="Email:" Grid.Row="6" Grid.Column="0"/>
+        <Label Content="Mô tả:" Grid.Row="7" Grid.Column="0"/>
+        <TextBox IsEnabled="False" x:Name="txbSupplierID"  Grid.Row="1" Grid.Column="1" Width="250"
+                 Text="{Binding SelectedItem.SupplierID, ElementName=dtgrSupplier}"/>
+        <TextBox x:Name="txtCompanyName" Grid.Row="2" Grid.Column="1" Width="250"
+                 Text="{Binding SelectedItem.CompanyName, ElementName=dtgrSupplier, Mode=OneWay}"/>
+        <TextBox x:Name="txtContactName" Grid.Row="3" Grid.Column="1" Width="250"
+                 Text="{Binding SelectedItem.ContactName, ElementName=dtgrSupplier, Mode=OneWay}"/>
+        <TextBox x:Name="txtAddress" Grid.Row="4" Grid.Column="1" Width="250"
+                 Text="{Binding SelectedItem.Address, ElementName=dtgrSupplier, Mode=OneWay}"/>
+        <TextBox x:Name="txtPhone" Grid.Row="5" Grid.Column="1" Width="250"
+                 Text="{Binding SelectedItem.Phone, ElementName=dtgrSupplier, Mode=OneWay}"/>
+        <TextBox x:Name="txtEmail" Grid.Row="6" Grid.Column="1" Width="250"
+                 Text="{Binding SelectedItem.Email, ElementName=dtgrSupplier, Mode=OneWay}"/>
+        <TextBox AcceptsReturn="True" x:Name="txtDescription" Grid.Row="7" Grid.Column="1" Width="250" Height="150"
+                 Text="{Binding SelectedItem.Description, ElementName=dtgrSupplier, Mode=OneWay}"/>
+        <DataGrid x:Name="dtgrSupplier" Grid.Row="2" Grid.Column="3" IsTextSearchEnabled="True"
+                  Width="auto" Height="auto" Grid.RowSpan="6" AutoGenerateColumns="False" IsReadOnly="True">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã NCC" Binding="{Binding SupplierID}"/>
+                <DataGridTextColumn Header="Tên NCC" Binding="{Binding CompanyName}"/>
+                <DataGridTextColumn Header="Tên liên lạc" Binding="{Binding ContactName}"/>
+                <DataGridTextColumn Header="Địa chỉ" Binding="{Binding Address}"/>
+                <DataGridTextColumn Header="Số điện thoại" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Mô tả" Binding="{Binding Description}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <WrapPanel HorizontalAlignment="Center" Grid.Row="8" Grid.ColumnSpan="2">
+            <Button x:Name="btnNew" Width="100" Margin="20" Click="btnNew_Click" >Thêm</Button>
+            <Button x:Name="btnUpdate" Width="100" Margin="20" Click="btnUpdate_Click" >Sửa</Button>
+            <Button x:Name="btnDelete" Width="100" Margin="20" Click="btnDelete_Click">Xóa</Button>
+        </WrapPanel>
+    </Grid>
+</Window>

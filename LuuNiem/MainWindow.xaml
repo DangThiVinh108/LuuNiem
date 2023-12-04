@@ -36,7 +36,7 @@
                         <Image Source="/Images/HoaDonNhap.jpg" />
                     </MenuItem.Icon>    
                 </MenuItem>
-                <MenuItem Header="Nhà cung cấp">
+                <MenuItem Header="Nhà cung cấp" x:Name="mnuSupplier" Click="mnuSupplier_Click" >
                     <MenuItem.Icon>
                         <Image Source="/Images/NhaCungCap.png" />
                     </MenuItem.Icon>
@@ -63,7 +63,7 @@
                 <MenuItem.Icon>
                     <Image Source="/Images/NguoiDung.png" />
                 </MenuItem.Icon>
-                <MenuItem Header="Đổi mật khẩu" x:Name="mnuUser" Click="mnuUser_Click" >
+                <MenuItem Header="Đổi mật khẩu" x:Name="mnuChangePassword" Click="mnuChangePassword_Click"  >
                     <MenuItem.Icon>
                         <Image Source="/Images/DoiMK.png" />
                     </MenuItem.Icon>
@@ -76,11 +76,6 @@
                 <MenuItem Header="Cập nhật người dùng">
                     <MenuItem.Icon>
                         <Image Source="/Images/CNNguoiDung.png" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Phân quyền">
-                    <MenuItem.Icon>
-                        <Image Source="/Images/PhanQuyen.png" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="mnuLogout" Header="Đăng xuất" Click="mnuLogout_Click">
